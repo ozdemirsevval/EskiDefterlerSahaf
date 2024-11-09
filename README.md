@@ -11,5 +11,23 @@ Projemizde tu tarz sitelerden hem kullanıcı hem de satıcı tarafından daha k
 
 ### Eski Defterler Sahaf Dükkanı Sahibi, Şevval Özdemir
 
-Uzun süredir,Kadıköy'de Akmar Pasajı içerisinde bulunan **Eski Defeterler** dükkanında faaliyet gösteren başta plak, pikap, kaset, walkmen(kaset-çalar), imzalı ikinci-el kitaplar, spotify'ın her reklam arası bahsettiği 8 parçalı teyp 😉 ve daha nicelerini dükkanımda satmaktaydım. Bu işlerimi Türkiye'de facebook yeni yeni yaygınlaşırken wordpress üstünden maliyetsiz olması adına blog tipinde bir site ile web üzerinden yürütmeye karar verdim. Fakat dijital dünyanın inanılmaz ilerlerdiği bu yıllarda o site kaçınılmaz bir sonla geçerliliğini yitirdi. Şimdiyse işlerimi daha iyi yürütmek için güncel bir uygulama istiyorum. Bunun için hali hazırdaki elemanlarımı bu proje için farklı görevlere atadım. Kendileri ile görüşeceksiniz zaten. Sizden istediğim, bu projeyi en kısa zamanda hayata geçirmeniz.
+Uzun süredir Kadıköy Akmar Pasajı'nda yer alan Eski Defterler dükkanında faaliyet göstermekteyim. Başta plak, pikap, kaset, walkman (kaset çalar), imzalı ikinci el kitaplar, Spotify'ın reklam aralarında bahsettiği
+8 parçalı teyp 😉 ve daha birçok ürünü dükkanımda satışa sunuyorum. İşlerimi, Türkiye'de Facebook'un yeni yeni yaygınlaştığı dönemde, maliyetsiz olması için blog tarzında bir siteyle WordPress üzerinden yürütmeye
+karar vermiştim. Ancak dijital dünyanın büyük bir hızla ilerlediği bu yıllarda, o site kaçınılmaz olarak geçerliliğini yitirdi. Şimdi ise işlerimi daha iyi yönetmek için güncel bir uygulama istiyorum. Bu proje için mevcut elemanlarımı farklı görevlere atadım; kendileriyle görüşeceksiniz zaten. Sizden ricam, bu projeyi en kısa zamanda hayata geçirmeniz.
+
+Projemizin bir web projesi olmasını istiyorum. Bir örnek vererek iş akışını anlatacak olursam belki daha rahat kafanızda canlandırabilirsiniz. Müşterimiz diyelim ki ismi İldem olsun, İldem Hanım sitemize üye olup,
+koleksiyonunu bizim sahip olduğumuz ürünlerle büyütmek istiyor. İldem Hanım önce siteye girip üyelik işlemlerini halledecek burda isim-soyisim, adres, iletişim adresleri (e-mail, telefon numarası), ödeme bilgileri gibi zorunlu doldurması gereken alanların bulunduğu bir yeni üye kayıt formu ile karşılaşacak. Ardından ürün yelpazemizi bulunabilirlik açısından en alt kategorilere kadar böldüğümüz çeşitli filtreleme işlemleriyle aradğı tarz ürünleri nokta atışı bulabileceği menü veya navbar kısmından aramalarını yapmasını istiyoruz. Bulduğu ürünleri profilinde çeşitli listelerde sonrasında satın alınmak üzere saklayabilir.
+Ya da aradığı ürünlerde 
+
+Bundan sonra eğer İldem Hanım bir ürünü beğenmişse, bu ürün için fiyat teklifi yap butonundan satıcıya yani bize teklifte bulunabilir ya da satıcı ile pazarlık yapabilir. En yüksek teklifte bulunan alıcının ürünü sipariş vermek için 24 saati vardır. 24 saat içerisinde verdiği teklifle işlem yapmazsa teklif sistemden otomatik olarak düşer ve kendinden sonraki en yüksek teklifi vermiş olan alıcıya bildirim gider. Arka tarafta bu işlemler dönerken önyüzde ürün teklif aldığı alıcıya satılana kadar arafta gözükür yani satış onay işlemi bekler ve sitede satıldı yazısı yer alır. Eğer satılamaz ise o zaman ürün tekrardan satışa açılır. 
+
+Diyelim ki her şey tamam teklif verildi,satış onaylandı ve alıcı sipariş verecek burdaki süreç ne olacak? Burada istediğimiz şeyse şu şekilde İldem Hanım anlaşmalı kargo firmalarımızdan kendisine uygun tarihte siparişini getirebilecek kargoyu seçerek ödeme ekranına geçmelidir. Ödeme ekranında kart bilgilerini doğruladıktan sonra sipariş onaylanır ve İldem Hanım'a mail veya sms biçiminde bilgilendirme mesajı iletilir.
+İlgili kargo şirketine biz ürünü teslim ettikten sonra kullanıcıya kargoya verildi biçiminde bir bilgilendirme mesajı iletilir ve profil üzerinden kargo hareketleri takip edilebilir. 
+
+İade süreci de göz ardı edilmemeli ve oluşan bir sorun karşısında hem bir destek(support) paneli olmalı hem de iade ekranıyla aynı işlemler tersine yapılarak takibi sağlanmalı.
+
+
+
+
+
 
