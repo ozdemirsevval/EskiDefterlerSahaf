@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EskiDefterler.DataAccess", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EskiDefterler.BusinessLogic", "EskiDefterler.BusinessLogic\EskiDefterler.BusinessLogic.csproj", "{0E2F2315-0369-47ED-85E0-BB330CCCFBBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EskiDefterler.MVC", "EskiDefterler.MVC\EskiDefterler.MVC.csproj", "{8A683FCE-FD1E-4534-8B94-ACE10263A536}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0E2F2315-0369-47ED-85E0-BB330CCCFBBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E2F2315-0369-47ED-85E0-BB330CCCFBBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E2F2315-0369-47ED-85E0-BB330CCCFBBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A683FCE-FD1E-4534-8B94-ACE10263A536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A683FCE-FD1E-4534-8B94-ACE10263A536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A683FCE-FD1E-4534-8B94-ACE10263A536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A683FCE-FD1E-4534-8B94-ACE10263A536}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

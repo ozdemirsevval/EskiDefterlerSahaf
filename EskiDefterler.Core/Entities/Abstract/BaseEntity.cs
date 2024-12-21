@@ -9,10 +9,5 @@ namespace EskiDefterler.Core.Entities.Abstract
     public abstract class BaseEntity
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
-        public int StockQuantity { get; set; }
-        public string Condition { get; set; }
     }
 }
