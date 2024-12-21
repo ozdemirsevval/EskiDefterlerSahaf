@@ -1,4 +1,5 @@
-﻿using EskiDefterler.Core.Entities.Abstract;
+﻿using EskiDefterler.BusinessLogic.Abstract;
+using EskiDefterler.Core.Entities.Abstract;
 using EskiDefterler.DataAccess.Repositories.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EskiDefterler.BusinessLogic.Concrete
 {
-    public class Manager<T> :Repository<T> where T : BaseEntity
+    public class Manager<T> :Repository<T>,IManager<T> where T : BaseEntity
     {
 
     }

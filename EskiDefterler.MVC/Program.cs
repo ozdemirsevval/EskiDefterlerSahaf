@@ -1,4 +1,6 @@
+using AspNetCoreHero.ToastNotification;
 using EskiDefterler.DataAccess;
+using EskiDefterler.MVC.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace EskiDefterler.MVC
@@ -12,8 +14,24 @@ namespace EskiDefterler.MVC
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+
+            #region DbContext DI
             var conn = builder.Configuration.GetConnectionString("EskiDefterlerDb");
             builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(conn));
+            #endregion
+
+            #region Notify Configuration
+
+            builder.Services.AddNotyf(p =>
+            {
+                p.Position = NotyfPosition.BottomRight;
+                p.DurationInSeconds = 5;
+                p.IsDismissable = true;
+            });
+
+            #endregion
+
+            builder.Services.AddAppService(); //DI baðýmlýlýklarýný Exceptions/AppExtentions sýnýfýnda tanýmladýk.
 
             var app = builder.Build();
 
