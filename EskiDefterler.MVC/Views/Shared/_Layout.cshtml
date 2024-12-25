@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using EskiDefterler.Core.Entities.Concrete
+@model List<Category>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -86,20 +89,26 @@
 						<nav id="navbar">
 							<div class="main-menu stellarnav">
 								<ul class="menu-list">
-									<li class="menu-item active"><a href="#home">Home</a></li>
+									<li class="menu-item active"><a asp-action="Index">Home</a></li>
+									
+									<li class="menu-item has-sub">		
+									<a asp-action="Categories">Categories</a>
+									<ul>
+											@foreach (var categories in Model)
+											{
+											<li>@categories.CategoryName</li>
+											}
+									</ul>
+
+									</li>
 									<li class="menu-item has-sub">
 										<a href="#pages" class="nav-link">Pages</a>
 
 										<ul>
-											<li class="active"><a href="index.html">Home</a></li>
-											<li><a href="index.html">About</a></li>
-											<li><a href="index.html">Styles</a></li>
-											<li><a href="index.html">Blog</a></li>
-											<li><a href="index.html">Post Single</a></li>
-											<li><a href="index.html">Our Store</a></li>
-											<li><a href="index.html">Product Single</a></li>
-											<li><a href="index.html">Contact</a></li>
-											<li><a href="index.html">Thank You</a></li>
+											<li class="active"><a asp-action="Index">Home</a></li>
+											<li><a asp-action="About">About</a></li>
+											<li><a asp-action="Blog">Blog</a></li>
+											<li><a asp-action="Contact">Contact</a></li>
 										</ul>
 
 									</li>

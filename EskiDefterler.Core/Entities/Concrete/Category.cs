@@ -9,7 +9,7 @@ namespace EskiDefterler.Core.Entities.Concrete
 {
     public class Category:BaseEntity
     {
-        public string Name { get; set; } // Örneğin: "Kitap", "Müzik", "Dergi"
+        public string CategoryName { get; set; } // Örneğin: "Kitap", "Müzik", "Dergi"
 
         public ICollection<SubCategory> SubCategories { get; set; }
     }

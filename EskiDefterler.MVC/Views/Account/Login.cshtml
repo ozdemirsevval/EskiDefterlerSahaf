@@ -1,10 +1,17 @@
 ﻿ @using EskiDefterler.MVC.Models.ViewModels.Account
 @model LoginVM
 
-@* <div class="row">
+@{
+    Layout = null;
+}
+
+
+
+ <div class="row">
     <div class="login-box">
         <!-- /.login-logo -->
-        <div class="card">
+        <div class="card" style="background:url(https://images.unsplash.com/photo-1549477606-43a329b26066?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat center;
+        box-shadow: 0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
@@ -53,19 +60,19 @@
                 </div>
                 <!-- /.social-auth-links -->
 
-                <p class="mb-1">
+                <p class="mb-1"> @*Buraya view eklenecek.*@
                     <a href="forgot-password.html">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="register.html" class="text-center">Register a new membership</a>
+                    <a asp-action="UserInsert" class="text-center">Register a new membership</a>
                 </p>
             </div>
             <!-- /.login-card-body -->
         </div>
     </div>
 </div>
- *@
- <style>
+ 
+@*  <style>
     body {
         margin: 0;
         color: #6a6f8c;
@@ -259,33 +266,33 @@
 <div class="login-wrap">
     <div class="login-html">
         <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+         <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label> 
         <div class="login-form">
             <div class="sign-in-html">
                 <div class="group">
-                    <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input">
+                    <label for="user" class="label">E-mail</label>
+                    <input asp-for="Email" type="text" class="input">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <input asp-for="Password" type="password" class="input" data-type="password">
                 </div>
                 <div class="group">
-                    <input id="check" type="checkbox" class="check" checked>
+                    <input asp-for="RememberMe" type="checkbox" class="check" checked>
                     <label for="check"><span class="icon"></span> Keep me Signed in</label>
                 </div>
                 <div class="group">
-                    <input type="submit" class="button" value="Sign In">
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                 </div>
                 <div class="hr"></div>
                 <div class="foot-lnk">
                     <a href="#forgot">Forgot Password?</a>
                 </div>
             </div>
-            <div class="sign-up-html">
+             <div class="sign-up-html">
                 <div class="group">
-                    <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input">
+                    <label for="user" class="label">E-mail</label>
+                    <input asp-for="Email" type="text" class="input">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Password</label>
@@ -300,13 +307,13 @@
                     <input id="pass" type="text" class="input">
                 </div>
                 <div class="group">
-                    <input type="submit" class="button" value="Sign Up">
+                    <button type="submit" class="button" value="Sign Up">
                 </div>
                 <div class="hr"></div>
                 <div class="foot-lnk">
                     <label for="tab-1">Already Member?</a>
                 </div>
-            </div>
+            </div> 
         </div>
     </div>
-</div>
+</div> *@

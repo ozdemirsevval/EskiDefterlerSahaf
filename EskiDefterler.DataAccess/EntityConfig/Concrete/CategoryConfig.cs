@@ -15,7 +15,7 @@ namespace EskiDefterler.DataAccess.EntityConfig.Concrete
         {
             base.Configure(builder);
 
-            builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
+            builder.Property(x => x.CategoryName).HasMaxLength(100).IsRequired();
 
         }
     }

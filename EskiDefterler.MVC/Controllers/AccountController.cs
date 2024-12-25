@@ -77,6 +77,7 @@ namespace EskiDefterler.MVC.Controllers
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+        #region Yeni Kullanıcı Kayıt İşlemleri
 
         [HttpGet]
         [AllowAnonymous]
@@ -109,7 +110,8 @@ namespace EskiDefterler.MVC.Controllers
             notyfService.Success("mission is possible");
 
             return RedirectToAction("Login", "Account");
-        }
+        } 
+        #endregion
 
     }
 }
