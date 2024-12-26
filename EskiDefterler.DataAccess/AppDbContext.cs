@@ -1,6 +1,7 @@
 ﻿using EskiDefterler.Core.Entities.Concrete;
 using EskiDefterler.DataAccess.EntityConfig.Abstract;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,9 @@ namespace EskiDefterler.DataAccess
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("server=DESKTOP-41905LE\\MSSQLSERVER01;Database=Db_EskiDefterler;Trusted_Connection=true;TrustServerCertificate=true");
+            optionsBuilder.UseSqlServer("server=DESKTOP-41905LE\\MSSQLSERVER01;Database=EskiDefterler;Trusted_Connection=true;TrustServerCertificate=true");
+
+            optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
