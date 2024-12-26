@@ -102,7 +102,6 @@ namespace EskiDefterler.MVC.Controllers
             user.BirthDate = userInsertVM.BirthDate;
             user.Email = userInsertVM.Email;
             user.Phone = userInsertVM.Phone;
-            user.Adress = userInsertVM.Adress;
             user.Password = userInsertVM.Password;
 
             userManager.Create(user);

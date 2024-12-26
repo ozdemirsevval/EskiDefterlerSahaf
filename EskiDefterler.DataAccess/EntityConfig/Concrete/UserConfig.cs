@@ -29,8 +29,8 @@ namespace EskiDefterler.DataAccess.EntityConfig.Concrete
             //Bu ne demek oluyor benim iki farlı user rolüm var Admin ve customer.
             //Ben adres bilgisi customer için zorunlu iken admin için zorunlu olmasın istiyorum.
 
-            builder.ToTable(t =>
-                t.HasCheckConstraint("CK_User_AdressId_ForCustomers", "RoleId = 1 AND AdressId IS NOT NULL OR RoleId = 2"));
+            //builder.ToTable(t =>
+            //    t.HasCheckConstraint("CK_User_AdressId_ForCustomers", "RoleId = 1 AND AdressId IS NOT NULL OR RoleId = 2"));
 
 
             builder.HasOne(p => p.Role)

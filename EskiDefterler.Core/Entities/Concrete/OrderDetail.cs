@@ -13,11 +13,11 @@ namespace EskiDefterler.Core.Entities.Concrete
         public int Quantity { get; set; }
         public decimal Discount { get; set; }
        
-        public int OrderId { get; set; }
-        public Order Orders { get; set; }
+        public int OrderId { get; set; } //Foreign Key
+        public Order Orders { get; set; } //Navigation Property
 
-        public int ProductId { get; set; }
-        public Product Products { get; set; }
+        public int ProductId { get; set; } //Foreign Key
+        public Product Products { get; set; } //Navigation Property
 
     }
 }

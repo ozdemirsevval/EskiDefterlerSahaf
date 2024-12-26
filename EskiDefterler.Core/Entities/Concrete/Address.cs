@@ -14,6 +14,9 @@ namespace EskiDefterler.Core.Entities.Concrete
         public string District {  get; set; } //Kadıköy, Beşiktaş etc.
         public string Province { get; set; } //İstanbul,Balıkesir etc.
 
-        public int UserId { get; set; }
+        public int UserId { get; set; } //foreignkey
+        //navigation property
+        public User User { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

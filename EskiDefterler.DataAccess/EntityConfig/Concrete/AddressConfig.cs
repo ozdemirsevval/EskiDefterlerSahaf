@@ -21,6 +21,10 @@ namespace EskiDefterler.DataAccess.EntityConfig.Concrete
             builder.Property(p => p.District).IsRequired().HasMaxLength(20); //Türkiye'de en uzun ilçe ismi 16 karakter
             builder.Property(p => p.Province).IsRequired().HasMaxLength(15); //Türkiyede en uzun il ismi 9 karakter
 
+            builder.HasOne(a => a.User)
+                .WithMany(u => u.Addresses)
+                .HasForeignKey(a => a.UserId);
+
         }
     }
 }

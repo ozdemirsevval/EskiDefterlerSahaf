@@ -9,21 +9,22 @@ namespace EskiDefterler.Core.Entities.Concrete
 {
     public class Order : BaseEntity
     {
-        public DateTime OrderDate { get; set; }
-        public DateTime RequiredDate { get; set; }
-        public DateTime ShippedDate { get; set; }
-        public string ShipVia { get; set; } //KargoFirmasi
+        public DateOnly OrderDate { get; set; }
+        public DateOnly? RequiredDate { get; set; }
+        public DateOnly? ShippedDate { get; set; }
         public decimal Freight { get; set; } //GönderimÜcreti
-        public string ShipAdress { get; set; } //Gönderim Adresi
-        public string ShipCity { get; set; } //Gönderimİli
-        public int? ShipPostalCode { get; set; } //PostaKodu
 
+        // Foreign Key
+        public int AddressId { get; set; } 
+        public int UserId { get; set; } 
+        public int ShipperId { get; set; }
 
-        public int ShipperId { get; set; } //foreign key
-        
-        public Shipper Shipper { get; set; } //NavigationProperty
+        //NavigationProperty
+        public Address Addresses { get; set; }
+        public User User { get; set; } // Her order bir usera aittir
+        public Shipper Shipper { get; set; } 
+        public ICollection<OrderDetail> OrderDetails { get; set; } 
 
-        public ICollection<OrderDetail> OrderDetails { get; set; }
 
     }
 }

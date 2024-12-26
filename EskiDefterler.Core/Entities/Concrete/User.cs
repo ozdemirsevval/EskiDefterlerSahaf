@@ -16,7 +16,9 @@ namespace EskiDefterler.Core.Entities.Concrete
         public string Phone { get; set; }
         public string Password { get; set; }
 
-        public int? AdressId { get; set; }//ForeignKey
+        public ICollection<Address> Addresses { get; set; } 
+        public ICollection<Order> Orders { get; set; }
+
         public int RoleId { get; set; } //ForeignKey
         public Role Role { get; set; } //NavigationProperty
     }

@@ -27,7 +27,9 @@ namespace EskiDefterler.DataAccess.EntityConfig.Concrete
             builder.Property(p => p.StockQuantity).IsRequired();
             builder.Property(p => p.StockQuantity).HasMaxLength(100);
 
-            builder.HasOne(p => p.SubCategories).WithMany(p => p.Products).HasForeignKey(p => p.SubCategoryId);
+            builder.HasOne(p => p.SubCategories)
+                .WithMany(p => p.Products)
+                .HasForeignKey(p => p.SubCategoryId);
 
         }
     }

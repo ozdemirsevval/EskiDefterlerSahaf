@@ -39,8 +39,8 @@ namespace EskiDefterler.DataAccess.Seeds
                     Id = 3,
                     Title = "Cesaretin var mı aşka?",
                     Condition = "İkinci El",
-                    Description = "Yönetmen: Yann Samuell\r\nOyuncular: Guillaume Canet, Marion Cotillard, Thibault Verhaeghe\r\n\r\n" +
-                                  "Özet:\r\nSophie ve Julien, çocukluklarından bu yana bir “cesaret oyunuyla” birbirlerine bağlanmış iki arkadaştır. " +
+                    Description = "Yönetmen: Yann Samuell Oyuncular: Guillaume Canet, Marion Cotillard, Thibault Verhaeghe" +
+                                  "Özet: Sophie ve Julien, çocukluklarından bu yana bir “cesaret oyunuyla” birbirlerine bağlanmış iki arkadaştır. " +
                                   "Aradan geçen zaman, ikilinin arasına giren insanlar, kızgınlıklar ve hayal kırıklıkları, hepsi oyunun aşılması gereken " +
                                   "engellerine dönüşür. Kahramanlarımızın arasında hayal gücünün sınırlarını zorlayan bir aşk yaratan bu oyun, maalesef " +
                                   "kavuşmalarını da engeller. Şimdi bu iki genç aşığın önündeki son ve en zorlu görev, aşklarını yaratan bu yıkıcı oyunla " +

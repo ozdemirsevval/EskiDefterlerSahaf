@@ -21,21 +21,18 @@ namespace EskiDefterler.DataAccess.EntityConfig.Concrete
             builder.Property(x => x.OrderDate).ValueGeneratedOnAdd()
                                               .HasDefaultValueSql("GETDATE()"); //varsayılan değer
                 
-            builder.Property(X=>X.RequiredDate).IsRequired();
-            
-            builder.Property(x=>x.ShippedDate).IsRequired();
 
-            builder.Property(x => x.ShipAdress).HasMaxLength(200);
-            builder.Property(x=>x.ShipAdress).IsRequired();
+            builder.HasOne(o => o.Shipper)
+                .WithMany(s => s.Orders)
+                .HasForeignKey(o => o.ShipperId);
 
-            builder.Property(x=>x.ShipCity).IsRequired();
-            builder.Property(x=>x.ShipCity).HasMaxLength(50);
+            builder.HasOne(o=>o.User)
+                .WithMany(u=>u.Orders)
+                .HasForeignKey(o => o.UserId);
 
-            builder.Property(x => x.ShipPostalCode).HasMaxLength(10);
-
-            builder.HasOne(p => p.Shipper)
-                .WithMany(p => p.Orders)
-                .HasForeignKey(p => p.ShipperId);
+            builder.HasOne(o=>o.Addresses) //order sınıfındaki adres navigation propertysi
+                .WithMany(a=>a.Orders) //adres sınıfınfaki order navigation propertysi
+                .HasForeignKey(o=>o.AddressId); // order sınıfındaki foreign key AdressId
         }
     }
 }
