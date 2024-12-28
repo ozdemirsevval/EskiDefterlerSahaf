@@ -1,6 +1,7 @@
 using AspNetCoreHero.ToastNotification;
 using EskiDefterler.DataAccess;
 using EskiDefterler.MVC.Extensions;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 namespace EskiDefterler.MVC
@@ -21,17 +22,29 @@ namespace EskiDefterler.MVC
             #endregion
 
             #region Notify Configuration
-
             builder.Services.AddNotyf(p =>
             {
                 p.Position = NotyfPosition.BottomRight;
                 p.DurationInSeconds = 5;
                 p.IsDismissable = true;
             });
-
             #endregion
 
-            builder.Services.AddAppService(); //DI baðýmlýlýklarýný Exceptions/AppExtentions sýnýfýnda tanýmladýk.
+            #region Cookie Base Authentication
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                options.Cookie.Name = "MySiteCookie";
+                options.LoginPath = "/Account/Login";
+                options.LogoutPath = "/Account/Logout";
+                //options.AccessDeniedPath = "/Account/ErisimHatasi";
+                options.Cookie.HttpOnly = true; //Taray?c?daki di?er scriptler okuyamas?n diye güvenlik 
+                options.Cookie.SameSite = SameSiteMode.Strict; //Baska tarayicilar tarafindan ulasilamasin diye güvenlik önlemi
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(10); //
+                options.SlidingExpiration = true; //Herhangi sitede bir hareket oldugunda süreyi 10 dk uzatir.
+            });
+            #endregion
+
+            builder.Services.AddAppService(); //DI bagimliliklarini Exceptions/AppExtentions sinifinda tanimladik.
 
             var app = builder.Build();
 

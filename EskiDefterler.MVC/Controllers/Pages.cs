@@ -9,12 +9,19 @@ namespace EskiDefterler.MVC.Controllers
 
         public IActionResult Index()
         {
+            var categories = _dbContext.Categories.ToList();
+            return View();
+
+        }
+
+        public IActionResult About()
+        {
             return View();
         }
-        public IActionResult Categories()
-        {
-            var categories = _dbContext.Categories.ToList();
-            return View(categories);
-        }
+
+        //public IActionResult Categories()
+        //{
+        //    return View(categories);
+        //}
     }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EskiDefterler.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241226220128_initDb")]
+    [Migration("20241226225529_initDb")]
     partial class initDb
     {
         /// <inheritdoc />
@@ -270,7 +270,7 @@ namespace EskiDefterler.DataAccess.Migrations
                             OrderDate = new DateOnly(2024, 10, 18),
                             RequiredDate = new DateOnly(2024, 10, 22),
                             ShippedDate = new DateOnly(2024, 10, 20),
-                            ShipperId = 0,
+                            ShipperId = 1,
                             UserId = 3
                         });
                 });
@@ -337,8 +337,7 @@ namespace EskiDefterler.DataAccess.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
                         .HasMaxLength(100)
@@ -389,7 +388,7 @@ namespace EskiDefterler.DataAccess.Migrations
                         {
                             Id = 3,
                             Condition = "İkinci El",
-                            Description = "Yönetmen: Yann Samuell Oyuncular: Guillaume Canet, Marion Cotillard, Thibault VerhaegheÖzet: Sophie ve Julien, çocukluklarından bu yana bir “cesaret oyunuyla” birbirlerine bağlanmış iki arkadaştır. Aradan geçen zaman, ikilinin arasına giren insanlar, kızgınlıklar ve hayal kırıklıkları, hepsi oyunun aşılması gereken engellerine dönüşür. Kahramanlarımızın arasında hayal gücünün sınırlarını zorlayan bir aşk yaratan bu oyun, maalesef kavuşmalarını da engeller. Şimdi bu iki genç aşığın önündeki son ve en zorlu görev, aşklarını yaratan bu yıkıcı oyunla başa çıkarak, bir arada olmayı öğrenmektir.",
+                            Description = "Yönetmen: Yann Samuell Oyuncular: Guillaume Canet, Marion Cotillard, Thibault Verhaeghe",
                             Price = 25m,
                             StockQuantity = 1,
                             SubCategoryId = 1,
@@ -982,7 +981,7 @@ namespace EskiDefterler.DataAccess.Migrations
                     b.HasOne("EskiDefterler.Core.Entities.Concrete.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Addresses");

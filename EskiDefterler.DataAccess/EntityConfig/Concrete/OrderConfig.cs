@@ -28,7 +28,8 @@ namespace EskiDefterler.DataAccess.EntityConfig.Concrete
 
             builder.HasOne(o=>o.User)
                 .WithMany(u=>u.Orders)
-                .HasForeignKey(o => o.UserId);
+                .HasForeignKey(o => o.UserId)
+                .OnDelete(DeleteBehavior.NoAction); ;
 
             builder.HasOne(o=>o.Addresses) //order sınıfındaki adres navigation propertysi
                 .WithMany(a=>a.Orders) //adres sınıfınfaki order navigation propertysi

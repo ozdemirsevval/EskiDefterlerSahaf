@@ -4,17 +4,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>153f55d6-340f-4cd0-b54a-c772fd59ccdc</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\EskiDefterler.BusinessLogic\EskiDefterler.BusinessLogic.csproj" />
+    <ProjectReference Include="..\EskiDefterler.DataAccess\EskiDefterler.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

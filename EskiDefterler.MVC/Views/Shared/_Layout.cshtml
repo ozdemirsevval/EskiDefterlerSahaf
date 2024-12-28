@@ -1,154 +1,38 @@
-﻿@using EskiDefterler.Core.Entities.Concrete
-@model List<Category>
+﻿﻿@using EskiDefterler.Core.Entities.Concrete
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - EskiDefterler.MVC</title>
-	<script src="https://kit.fontawesome.com/a143aa1aff.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - EskiDefterler.MVC</title>
+
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/EskiDefterler.MVC.styles.css" asp-append-version="true" />
-    <link href="~/booktemp/css/normalize.css" rel="stylesheet" />
-    <link href="~/booktemp/css/vendor.css" rel="stylesheet" />
-    <link href="~/booktemp/icomoon/icomoon.css" rel="stylesheet" />
+	<link href="~/booktemp/css/normalize.css" rel="stylesheet" />
+	<link href="~/booktemp/css/vendor.css" rel="stylesheet" />
+	<link href="~/booktemp/icomoon/icomoon.css" rel="stylesheet" />
 	<link href="~/booktemp/style.css" rel="stylesheet" />
 
 </head>
- <body>
-	<div id="header-wrap">
+<body>
 
-		<div class="top-content">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="social-links">
-							<ul>
-								<li>
-									<a href="https://www.linkedin.com/in/sevval-ozdemir/"><i class="fa-brands fa-linkedin"></i></a>
-								</li>
-								<li>
-									<a href="https://github.com/ozdemirsevval"><i class="fa-brands fa-github"></i></a>
-								</li>
-								<li>
-									<a href="https://www.youtube.com/watch?v=jeh3M56CGCM"><i class="icon icon-youtube-play"></i></a>
-								</li>
-								<li>
-									<a href="https://open.spotify.com/"><i class="fa-brands fa-spotify"></i></a>
-								</li>
-							</ul>
-						</div><!--social-links-->
-					</div>
-					<div class="col-md-6">
-						<div class="right-element">
-							<a asp-area="" asp-controller="Account" asp-action="Login">
-								<i class="icon icon-user"></i>
-								<span>Account</span>
-							</a>
+	<header>
+		<partial name="_Navbar" />
+	</header>
 
-							<a href="#" class="cart for-buy">
-								<i class="icon icon-clipboard"></i><span>
-									Cart:(0 $)</span>
-							</a>
-
-							<div class="action-menu">
-
-								<div class="search-bar">
-									<a href="#" class="search-button search-toggle" data-selector="#header-wrap">
-										<i class="icon icon-search"></i>
-									</a>
-									<form role="search" method="get" class="search-box">
-										<input class="search-field text search-input" placeholder="Search"
-											   type="search">
-									</form>
-								</div>
-							</div>
-
-						</div><!--top-right-->
-					</div>
-
-				</div>
-			</div>
-		</div><!--top-content-->
-
-		<header id="header">
-			<div class="container-fluid">
-				<div class="row">
-
-					<div class="col-md-2">
-						<div class="main-logo">
-							<a href="index.html"><img src= "~/BookTemp/images/myLogo21.png" alt="logo" ></a>
-						</div>
-
-					</div>
-
-					<div class="col-md-10">
-
-						<nav id="navbar">
-							<div class="main-menu stellarnav">
-								<ul class="menu-list">
-									<li class="menu-item active"><a asp-action="Index">Home</a></li>
-									
-									<li class="menu-item has-sub">		
-									<a asp-action="Categories">Categories</a>
-									<ul>
-											@foreach (var categories in Model)
-											{
-											<li>@categories.CategoryName</li>
-											}
-									</ul>
-
-									</li>
-									<li class="menu-item has-sub">
-										<a href="#pages" class="nav-link">Pages</a>
-
-										<ul>
-											<li class="active"><a asp-action="Index">Home</a></li>
-											<li><a asp-action="About">About</a></li>
-											<li><a asp-action="Blog">Blog</a></li>
-											<li><a asp-action="Contact">Contact</a></li>
-										</ul>
-
-									</li>
-									<li class="menu-item"><a href="#featured-books" class="nav-link">Featured</a></li>
-									<li class="menu-item"><a href="#categories" class="nav-link">Categories</a></li>
-									<li class="menu-item"><a href="#popular-books" class="nav-link">Popular</a></li>
-									<li class="menu-item"><a href="#special-offer" class="nav-link">Offer</a></li>
-									<li class="menu-item"><a href="#latest-blog" class="nav-link">Articles</a></li>
-								</ul>
-
-								<div class="hamburger">
-									<span class="bar"></span>
-									<span class="bar"></span>
-									<span class="bar"></span>
-								</div>
-
-							</div>
-						</nav>
-
-					</div>
-
-				</div>
-			</div>
-		</header>
-
-	</div><!--header-wrap-->
-    
-    
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+			<script src="https://kit.fontawesome.com/a143aa1aff.js" crossorigin="anonymous"></script>
+		</main>
+	</div>
 
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
-
 				<div class="col-md-4">
-
 					<div class="footer-item">
 						<div class="company-brand">
 							<img src="~/BookTemp/images/myLogo21.png" alt="logo" class="footer-logo">
@@ -269,7 +153,7 @@
 
 							<div class="col-md-6">
 								<p>
-									© 2024 All rights reserved by Şevval Özdemir.
+									© 2024 EskiDefterler. All rights reserved by Şevval Özdemir.
 								</p>
 							</div>
 
@@ -277,16 +161,16 @@
 								<div class="social-links align-right">
 									<ul>
 										<li>
-											<a href="#"><i class="icon icon-facebook"></i></a>
+											<a href="https://www.linkedin.com/in/sevval-ozdemir/"><i class="fa-brands fa-linkedin"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-twitter"></i></a>
+											<a href="https://github.com/ozdemirsevval"><i class="fa-brands fa-github"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-youtube-play"></i></a>
+											<a href="https://www.youtube.com/watch?v=jeh3M56CGCM"><i class="icon icon-youtube-play"></i></a>
 										</li>
 										<li>
-											<a href="https://open.spotify.com/intl-tr/album/2zSqnTr0gSXrSlPbHzLfJS"><i class="fa-brands fa-spotify" style="color: #f9c91a;"></i></a>
+											<a href="https://open.spotify.com/"><i class="fa-brands fa-spotify"></i></a>
 										</li>
 									</ul>
 								</div>
@@ -301,9 +185,18 @@
 	</div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/booktemp/js/modernizr.js"></script>
+    <script src="~/booktemp/js/plugins.js"></script>
+    <script src="~/booktemp/js/slidenav.min.js"></script>
+    <script src="~/booktemp/js/slidenav.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-	
-    @await RenderSectionAsync("Scripts", required: false)
-</body> 
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.esm.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.esm.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
 </html>

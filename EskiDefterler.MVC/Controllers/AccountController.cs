@@ -1,19 +1,26 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using EskiDefterler.BusinessLogic.Abstract;
 using EskiDefterler.Core.Entities.Concrete;
+using EskiDefterler.DataAccess;
 using EskiDefterler.MVC.Models.ViewModels.Account;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
+using System.Data;
 using System.Security.Claims;
 
 namespace EskiDefterler.MVC.Controllers
 {
-    public class AccountController(IManager<User> userManager, 
-                                   IManager<User> adminManager, 
-                                   INotyfService notyfService): Controller
+
+    [Authorize]
+    public class AccountController(IManager<User> userManager,
+                                   IManager<Role> roleManager,
+                                   IManager<User> adminManager,
+                                   AppDbContext dbContext,
+                                   INotyfService notyfService) : Controller
     {
         public IActionResult Index()
         {
@@ -30,10 +37,10 @@ namespace EskiDefterler.MVC.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult>Login(LoginVM loginVM)
+        public async Task<IActionResult> Login(LoginVM loginVM)
         {
-           var user = userManager.GetAllInclude(p=>p.Email == loginVM.Email && p.Password == loginVM.Password).FirstOrDefault();
-           var admin = adminManager.GetAllInclude(p => p.Email == loginVM.Email && p.Password == loginVM.Password).FirstOrDefault();
+            var user = userManager.GetAllInclude(p => p.Email == loginVM.Email && p.Password == loginVM.Password).FirstOrDefault();
+            var admin = adminManager.GetAllInclude(p => p.Email == loginVM.Email && p.Password == loginVM.Password).FirstOrDefault();
 
             if (user == null)
             {
@@ -49,12 +56,13 @@ namespace EskiDefterler.MVC.Controllers
                 new Claim(ClaimTypes.NameIdentifier,loginVM.Email)
             };
 
-            if (user != null) 
-            { 
-            claims.Add(new Claim("userId",user.Id.ToString()));
+            if (user != null)
+            {
+                claims.Add(new Claim("userId", user.Id.ToString()));
             }
 
-            var claimsIdentity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
             var authenticationProperty = new AuthenticationProperties()
             {
@@ -63,11 +71,11 @@ namespace EskiDefterler.MVC.Controllers
 
             var userPrincipal = new ClaimsPrincipal(claimsIdentity);
 
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, 
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                                             userPrincipal, authenticationProperty);
             return RedirectToAction("Index", "Home");
 
-            
+
         }
 
         [HttpGet]
@@ -96,6 +104,7 @@ namespace EskiDefterler.MVC.Controllers
                 notyfService.Error("You need to check your informations");
                 return View(userInsertVM);
             }
+
             User user = new User();
             user.FirstName = userInsertVM.FirstName;
             user.LastName = userInsertVM.LastName;
@@ -104,12 +113,26 @@ namespace EskiDefterler.MVC.Controllers
             user.Phone = userInsertVM.Phone;
             user.Password = userInsertVM.Password;
 
+            //#region Kullanıcıya Default olarak User rolü eklenir
+
+            //var userrole = roleManager.GetAllInclude(p => p.RoleTitle == "Customer", p => p.Users).FirstOrDefault();
+
+            //User.Role = new List<Role>();
+            //User.Role.Add(role);
+            //userManager.Update(myUser);
+
+            //notyfService.Success("İşlem başarılı.");
+
+            //#endregion
+
+
             userManager.Create(user);
 
             notyfService.Success("mission is possible");
 
             return RedirectToAction("Login", "Account");
-        } 
+
+        }
         #endregion
 
     }

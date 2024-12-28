@@ -22,7 +22,8 @@ namespace EskiDefterler.DataAccess.Seeds
                    AddressId = 1,
                    OrderDate = new DateOnly(2024, 10, 18), //18 Ekim 2024
                    RequiredDate = new DateOnly(2024,10,22), //Tahmini Teslimat Tarihi
-                   ShippedDate = new DateOnly(2024,10,20) //kargoya verilen tarih
+                   ShippedDate = new DateOnly(2024,10,20), //kargoya verilen tarih
+                   ShipperId = 1
                }
             );
         }

@@ -1,42 +1,104 @@
-﻿@using EskiDefterler.Core.Entities.Concrete
-@model List<User>
+﻿@using EskiDefterler.MVC.Models.ViewModels.Account
+@model UserInsertVM
 
-<a asp-action="UserInsert" asp-controller="Account" class="btn btn-primary">Yeni Kayit</a>
+@{
+    Layout = null;
+}
 
-<table class="table table-active">
-    <tr>
-        <td>Ad</td>
-        <td>Soyad</td>
-        <td>Email</td>
-        <td>Gsm</td>
-        <td>Adres</td>
-        <td>Islem</td>
-    </tr>
-    @foreach (var user in Model)
-    {
-        <tr>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-            <td>@user.FirstName</td>
-            <td>@user.LastName</td>
-            <td>@user.Email</td>
-            <td>@user.Phone</td>
-            <td>@user.Password</td>
-            <td>
-                <div class="input-group mb-3">
-                    <button class="btn btn-outline-secondary dropdown-toggle"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-gear-wide-connected"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" asp-action="EditUser" asp-controller="Account" asp-route-id="@user.Id"><i class="bi bi-pencil-square"></i></a></li>
-                        <li><a class="dropdown-item" asp-action="DeleteUser" asp-controller="Account" asp-route-id="@user.Id"><i class="bi bi-archive"></i></a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Separated link</a></li>
-                    </ul>
+    <style>
+        /* Genel stil */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+        }
 
-                </div>
-            </td>
-        </tr>
-    }
-</table>
+        .form-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+            .form-container h2 {
+                margin-bottom: 20px;
+                color: #343a40;
+            }
+
+        .form-control {
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+            .form-control:focus {
+                box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+                border-color: rgba(0, 123, 255, 0.6);
+            }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            font-size: 1rem;
+            padding: 10px;
+            width: 100%;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #004492;
+            }
+
+        i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Yeni Kullanıcı Kayıt Formu</h2>
+        <form asp-action="UserInsert" asp-controller="Account" method="post">
+            <div class="mb-3">
+                <label for="FirstName" class="form-label"><i class="fas fa-user"></i> Ad</label>
+                <input type="text" class="form-control" id="FirstName" name="FirstName" required>
+            </div>
+            <div class="mb-3">
+                <label for="LastName" class="form-label"><i class="fas fa-user"></i> Soyad</label>
+                <input type="text" class="form-control" id="LastName" name="LastName" required>
+            </div>
+            <div class="mb-3">
+                <label for="BirthDate" class="form-label"><i class="fas fa-calendar-alt"></i> Doğum Tarihi</label>
+                <input type="date" class="form-control" id="BirthDate" name="BirthDate" required>
+            </div>
+            <div class="mb-3">
+                <label for="Email" class="form-label"><i class="fas fa-envelope"></i> Email</label>
+                <input type="email" class="form-control" id="Email" name="Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="Phone" class="form-label"><i class="fas fa-phone-alt"></i> Telefon Numarası</label>
+                <input type="text" class="form-control" id="Phone" name="Phone" required>
+            </div>
+            <div class="mb-3">
+                <label for="Password" class="form-label"><i class="fas fa-lock"></i> Şifre</label>
+                <input type="password" class="form-control" id="Password" name="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Kaydet</button>
+        </form>
+    </div>
+
+</body>
+</html>

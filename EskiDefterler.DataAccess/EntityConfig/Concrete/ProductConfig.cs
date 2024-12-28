@@ -19,7 +19,6 @@ namespace EskiDefterler.DataAccess.EntityConfig.Concrete
             builder.Property(p => p.Title).HasMaxLength(100);
 
             builder.Property(p => p.Description).IsRequired();
-            builder.Property(p => p.Description).HasMaxLength(100);
 
             builder.Property(p => p.Price).IsRequired();
             builder.Property(p => p.Price).HasMaxLength(100);

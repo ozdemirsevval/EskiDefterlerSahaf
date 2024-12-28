@@ -141,7 +141,7 @@ namespace EskiDefterler.DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", maxLength: 100, nullable: false),
                     StockQuantity = table.Column<int>(type: "int", maxLength: 100, nullable: false),
                     Condition = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -214,8 +214,7 @@ namespace EskiDefterler.DataAccess.Migrations
                         name: "FK_Orders_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -369,13 +368,13 @@ namespace EskiDefterler.DataAccess.Migrations
                 {
                     { 1, "Yeni Gibi", "Ada Müzk Yapım şirketi imzalı 99 çıkışlı albümü", 200m, 1, 36, "1999 Bülent Ortaçgil - Eski Defterler Kaseti" },
                     { 2, "İkinci el", "Cem Yayınları, 1971. Karton Kapak", 100m, 2, 14, "İnce Memed II" },
-                    { 3, "İkinci El", "Yönetmen: Yann Samuell Oyuncular: Guillaume Canet, Marion Cotillard, Thibault VerhaegheÖzet: Sophie ve Julien, çocukluklarından bu yana bir “cesaret oyunuyla” birbirlerine bağlanmış iki arkadaştır. Aradan geçen zaman, ikilinin arasına giren insanlar, kızgınlıklar ve hayal kırıklıkları, hepsi oyunun aşılması gereken engellerine dönüşür. Kahramanlarımızın arasında hayal gücünün sınırlarını zorlayan bir aşk yaratan bu oyun, maalesef kavuşmalarını da engeller. Şimdi bu iki genç aşığın önündeki son ve en zorlu görev, aşklarını yaratan bu yıkıcı oyunla başa çıkarak, bir arada olmayı öğrenmektir.", 25m, 1, 1, "Cesaretin var mı aşka?" }
+                    { 3, "İkinci El", "Yönetmen: Yann Samuell Oyuncular: Guillaume Canet, Marion Cotillard, Thibault Verhaeghe", 25m, 1, 1, "Cesaretin var mı aşka?" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "AddressId", "Freight", "OrderDate", "RequiredDate", "ShippedDate", "ShipperId", "UserId" },
-                values: new object[] { 1, 1, 0m, new DateOnly(2024, 10, 18), new DateOnly(2024, 10, 22), new DateOnly(2024, 10, 20), 0, 3 });
+                values: new object[] { 1, 1, 0m, new DateOnly(2024, 10, 18), new DateOnly(2024, 10, 22), new DateOnly(2024, 10, 20), 1, 3 });
 
             migrationBuilder.InsertData(
                 table: "OrderDetails",
