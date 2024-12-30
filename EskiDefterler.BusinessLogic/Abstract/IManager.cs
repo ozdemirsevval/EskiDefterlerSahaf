@@ -10,5 +10,6 @@ namespace EskiDefterler.BusinessLogic.Abstract
 {
     public interface IManager<T> : IRepository<T> where T : BaseEntity
     {
+        Task GetByIdAsync(int userId);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using EskiDefterler.Core.Entities.Abstract;
+using EskiDefterler.Core.Entities.Concrete;
 using EskiDefterler.DataAccess.Repositories.Abstract;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -46,7 +47,11 @@ namespace EskiDefterler.DataAccess.Repositories.Concrete
         {
             return _dbContext.Set<T>().Find(id);
         }
-        
+        public async Task<User?> GetByIdAsync(int id)
+        {
+            return await _dbContext.Set<User>().FindAsync(id);
+        }
+
         public T? Get(Expression<Func<T, bool>> predicate)
         {
             return _dbContext.Set<T>().FirstOrDefault(predicate);
@@ -71,6 +76,11 @@ namespace EskiDefterler.DataAccess.Repositories.Concrete
                 query = _dbContext.Set<T>().Where(predicate);
             }
             return include.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
+        }
+
+        async Task<T?> IRepository<T>.GetByIdAsync(int id)
+        {
+            return await _dbContext.Set<T>().FindAsync(id);
         }
 
         #endregion

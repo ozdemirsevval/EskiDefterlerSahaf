@@ -1,7 +1,10 @@
 using AspNetCoreHero.ToastNotification;
+using EskiDefterler.BusinessLogic.Abstract;
+using EskiDefterler.Core.Entities.Concrete;
 using EskiDefterler.DataAccess;
 using EskiDefterler.MVC.Extensions;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace EskiDefterler.MVC
@@ -14,7 +17,6 @@ namespace EskiDefterler.MVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
 
             #region DbContext DI
             var conn = builder.Configuration.GetConnectionString("EskiDefterlerDb");

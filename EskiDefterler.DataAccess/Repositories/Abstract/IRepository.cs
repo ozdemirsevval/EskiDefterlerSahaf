@@ -15,6 +15,7 @@ namespace EskiDefterler.DataAccess.Repositories.Abstract
         public int Delete(T entity);
 
         public T? GetById(int id);
+        public Task<T?> GetByIdAsync(int id);
         public T? Get(Expression<Func<T, bool>> predicate);
         public List<T>? GetAll(Expression<Func<T,bool>> predicate=null);
         public IQueryable<T>? GetAllInclude(Expression<Func<T,bool>>predicate=null,

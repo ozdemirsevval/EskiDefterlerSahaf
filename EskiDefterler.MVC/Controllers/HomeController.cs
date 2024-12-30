@@ -8,7 +8,7 @@ namespace EskiDefterler.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly AppDbContext _dbContext;
+        //private readonly AppDbContext _dbContext;
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -19,8 +19,6 @@ namespace EskiDefterler.MVC.Controllers
         public IActionResult Index()
         {
             return View();
-            var categories = _dbContext.Categories.ToList(); // Örnek veri çekme
-            return View(categories); // View'e model gönderiliyor
         }
 
         public IActionResult Privacy()

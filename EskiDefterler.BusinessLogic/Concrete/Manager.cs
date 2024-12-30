@@ -9,8 +9,11 @@ using System.Threading.Tasks;
 
 namespace EskiDefterler.BusinessLogic.Concrete
 {
-    public class Manager<T> :Repository<T>,IManager<T> where T : BaseEntity
+    public class Manager<T> : Repository<T>, IManager<T> where T : BaseEntity
     {
-
+        public Task GetByIdAsync(int userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

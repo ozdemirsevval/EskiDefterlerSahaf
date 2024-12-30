@@ -1,0 +1,10 @@
+﻿@using EskiDefterler.Core.Entities.Concrete
+@model List<Category>
+<ul class="navbar-nav flex-grow-1">
+    @foreach (var item in Model)
+    {
+        <li class="nav prod-cat">
+            <a class="nav-link text-dark" >@item.CategoryName</a>
+        </li>  
+    }
+</ul>

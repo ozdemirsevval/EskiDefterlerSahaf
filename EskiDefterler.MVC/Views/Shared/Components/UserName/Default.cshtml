@@ -1,3 +1,12 @@
-﻿
-<p>Hoşgeldiniz, @Model</p>
+﻿@using EskiDefterler.Core.Entities.Concrete;
+
+@if(User.Identity.IsAuthenticated)
+{
+    <p>Hoşgeldiniz, @Model</p>
+}
+else
+{
+    <p>Hoşgeldin Ziyaretçi</p>
+}
+
 
