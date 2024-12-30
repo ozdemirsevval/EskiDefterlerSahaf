@@ -3,6 +3,7 @@ using EskiDefterler.BusinessLogic.Abstract;
 using EskiDefterler.Core.Entities.Concrete;
 using EskiDefterler.DataAccess;
 using EskiDefterler.MVC.Extensions;
+using EskiDefterler.MVC.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ namespace EskiDefterler.MVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddTransient<EmailService>();
 
             #region DbContext DI
             var conn = builder.Configuration.GetConnectionString("EskiDefterlerDb");

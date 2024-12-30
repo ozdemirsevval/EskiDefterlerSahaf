@@ -10,26 +10,22 @@ using System.Threading.Tasks;
 
 namespace EskiDefterler.DataAccess.EntityConfig.Concrete
 {
-    public class SaleConfig : BaseConfig<Sale>
+    public class CartProductConfig : BaseConfig<CartProduct>
     {
-        public override void Configure(EntityTypeBuilder<Sale> builder)
+        public override void Configure(EntityTypeBuilder<CartProduct> builder)
         {
             base.Configure(builder);
 
             builder.Property(x => x.Quantity).IsRequired();
             builder.Property(x => x.Quantity).HasMaxLength(100);
 
-            builder.Property(x => x.Price).IsRequired();
-            builder.Property(x => x.Price).HasMaxLength(100);
+            builder.HasOne(cp => cp.Cart)
+                .WithMany(c => c.CartProducts)
+                .HasForeignKey(cp => cp.ProductId);
 
-            //builder.Property(x=>x.Image).IsRequired();
-            builder.Property(x => x.Image).HasMaxLength(100);
-
-            builder.Property(x => x.Date).ValueGeneratedOnAdd()
-                                              .HasDefaultValueSql("GETDATE()"); ;
-            builder.Property(x => x.Date).HasMaxLength(20);
-
-
+            builder.HasOne(cp=>cp.Product)
+                .WithMany(p=>p.CartProducts)
+                .HasForeignKey(cp => cp.ProductId);
         }
     }
 }

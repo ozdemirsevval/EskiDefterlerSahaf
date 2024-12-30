@@ -29,6 +29,11 @@ namespace EskiDefterler.DataAccess.EntityConfig.Concrete
             builder.HasOne(p => p.SubCategories)
                 .WithMany(p => p.Products)
                 .HasForeignKey(p => p.SubCategoryId);
+            
+            builder.HasMany(p=>p.ProductImages)
+                .WithOne(pi=>pi.Product)
+                .HasForeignKey(pi=>pi.ProductId);
+
 
         }
     }

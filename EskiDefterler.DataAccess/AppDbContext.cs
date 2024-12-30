@@ -20,8 +20,9 @@ namespace EskiDefterler.DataAccess
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Shipper> Shippers { get; set; }
         public DbSet<Cart> Carts { get; set; }
-        public DbSet<Sale>Sales { get; set; }
+        public DbSet<CartProduct>CartProducts { get; set; } //Sepetteki Ürünler
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
 
         public AppDbContext() 
         {

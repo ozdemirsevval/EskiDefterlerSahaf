@@ -7,23 +7,18 @@ using System.Threading.Tasks;
 
 namespace EskiDefterler.Core.Entities.Concrete
 {
-    public class Sale :BaseEntity
+    public class CartProduct :BaseEntity
     {
-        public int ProductId { get; set; }
-
-
         public int Quantity { get; set; }
 
-
-        public decimal Price { get; set; }
-
-
-        public DateTime Date { get; set; }
-
-
-        public string? Image { get; set; }
-
-
+        //ForeignKey
+        public int ProductId { get; set; }
         public int UserId { get; set; }
+
+        //NavigationProp
+
+        public Cart Cart { get; set; }
+        public Product Product { get; set; }
+
     }
 }

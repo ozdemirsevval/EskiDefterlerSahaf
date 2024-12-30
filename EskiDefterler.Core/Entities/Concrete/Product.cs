@@ -16,6 +16,8 @@ namespace EskiDefterler.Core.Entities.Concrete
         public string Condition { get; set; }
 
         public ICollection<OrderDetail> OrderDetails { get; set; } //NavigationProperty
+        public ICollection<ProductImage> ProductImages { get; set; }
+        public ICollection<CartProduct> CartProducts { get; set; }
 
         public int SubCategoryId { get; set; }
         public SubCategory SubCategories { get; set; }
