@@ -14,6 +14,7 @@ namespace EskiDefterler.Core.Entities.Concrete
         public decimal Price { get; set; }
         public int StockQuantity { get; set; }
         public string Condition { get; set; }
+        public string PhotoUrl { get; set; }
 
         public ICollection<OrderDetail> OrderDetails { get; set; } //NavigationProperty
         public ICollection<ProductImage> ProductImages { get; set; }

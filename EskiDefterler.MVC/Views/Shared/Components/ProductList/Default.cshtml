@@ -1,7 +1,6 @@
 ﻿@using EskiDefterler.Core.Entities.Concrete
 @model List<Product>
 
-
 <div class="row product-list">
     @foreach (var product in Model)
     {
@@ -9,7 +8,7 @@
             <section class="panel">
 
                 <div class="pro-img-box">
-                    <img src="https://www.bootdey.com/image/250x220/6495ED/000000" alt="" />
+                    <img src="@Url.Content(product.PhotoUrl)"/>
                     <a href="#" class="adtocart">
                         <i class="fa fa-shopping-cart"></i>
                     </a>

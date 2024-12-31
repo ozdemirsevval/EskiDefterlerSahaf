@@ -4,6 +4,7 @@ using EskiDefterler.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EskiDefterler.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241230234736_ProductImageSeedDataAdded")]
+    partial class ProductImageSeedDataAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -339,10 +342,6 @@ namespace EskiDefterler.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhotoUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("Price")
                         .HasMaxLength(100)
                         .HasColumnType("decimal(18,2)");
@@ -373,7 +372,6 @@ namespace EskiDefterler.DataAccess.Migrations
                             Id = 1,
                             Condition = "Yeni Gibi",
                             Description = "Ada Müzk Yapım şirketi imzalı 99 çıkışlı albümü",
-                            PhotoUrl = "https://ideacdn.net/idea/ce/36/myassets/products/164/img-e5560.JPG?revision=1720098706",
                             Price = 200m,
                             StockQuantity = 1,
                             SubCategoryId = 36,
@@ -384,7 +382,6 @@ namespace EskiDefterler.DataAccess.Migrations
                             Id = 2,
                             Condition = "İkinci el",
                             Description = "Cem Yayınları, 1971. Karton Kapak",
-                            PhotoUrl = "https://s3.cloud.ngn.com.tr/kitantik/images/2024-06-12/1br9qfwlxbwuygk13hk.jpg",
                             Price = 100m,
                             StockQuantity = 2,
                             SubCategoryId = 14,
@@ -395,7 +392,6 @@ namespace EskiDefterler.DataAccess.Migrations
                             Id = 3,
                             Condition = "İkinci El",
                             Description = "Yönetmen: Yann Samuell Oyuncular: Guillaume Canet, Marion Cotillard, Thibault Verhaeghe",
-                            PhotoUrl = "https://www.plakperest.com/img/products/16742102032787432570614927694837_20.01.2023_a1433d3.jpg",
                             Price = 25m,
                             StockQuantity = 1,
                             SubCategoryId = 1,

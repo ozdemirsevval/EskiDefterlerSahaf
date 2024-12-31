@@ -22,6 +22,7 @@ namespace EskiDefterler.MVC.Controllers
                                    AppDbContext dbContext,
                                    INotyfService notyfService) : Controller
     {
+
         public IActionResult Index()
         {
             return View();
@@ -99,11 +100,11 @@ namespace EskiDefterler.MVC.Controllers
         [AllowAnonymous]
         public ActionResult UserInsert(UserInsertVM userInsertVM)
         {
-            if (!ModelState.IsValid)
-            {
-                notyfService.Error("You need to check your informations");
-                return View(userInsertVM);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    notyfService.Error("You need to check your informations");
+            //    return View(userInsertVM);
+            //}
 
             User user = new User();
             user.FirstName = userInsertVM.FirstName;
@@ -112,16 +113,21 @@ namespace EskiDefterler.MVC.Controllers
             user.Email = userInsertVM.Email;
             user.Phone = userInsertVM.Phone;
             user.Password = userInsertVM.Password;
-
+            
             //#region Kullanıcıya Default olarak User rolü eklenir
 
+            //var myUser = new User();
+
             //var userrole = roleManager.GetAllInclude(p => p.RoleTitle == "Customer", p => p.Users).FirstOrDefault();
+            //dbContext.Attach(userrole);
+            //myUser.Role.Add(new Role
+            //{
+            //    Id = userrole.Id
+            //});
 
-            //User.Role = new List<Role>();
-            //User.Role.Add(role);
-            //userManager.Update(myUser);
+            //dbContext.SaveChanges();
 
-            //notyfService.Success("İşlem başarılı.");
+            notyfService.Success("İşlem başarılı.");
 
             //#endregion
 
