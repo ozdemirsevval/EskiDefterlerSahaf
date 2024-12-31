@@ -24,9 +24,8 @@ namespace EskiDefterler.MVC.Models.ViewModels.Account
         public string Email { get; set; }
 
         [Required(ErrorMessage = "You must enter your phone")]
-       // [StringLength(15, ErrorMessage = "Phone number should be 15 char")]
-        [RegularExpression("^[0-9]{15}$", ErrorMessage = "Phone number contianed between 0-9 only.")]
-        // [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Phone number must contain 10 digits.")]
+        [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "Password is mandatory")]

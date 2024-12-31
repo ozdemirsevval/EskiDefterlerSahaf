@@ -19,7 +19,7 @@ namespace EskiDefterler.Core.Entities.Concrete
         public ICollection<Address> Addresses { get; set; } 
         public ICollection<Order> Orders { get; set; }
 
-        public int RoleId { get; set; } //ForeignKey
+        public int RoleId { get; set; } = 1; //ForeignKey
         public Role Role { get; set; } //NavigationProperty
     }
 }

@@ -100,11 +100,11 @@ namespace EskiDefterler.MVC.Controllers
         [AllowAnonymous]
         public ActionResult UserInsert(UserInsertVM userInsertVM)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    notyfService.Error("You need to check your informations");
-            //    return View(userInsertVM);
-            //}
+            if (!ModelState.IsValid)
+            {
+                notyfService.Error("You need to check your informations");
+                return View(userInsertVM);
+            }
 
             User user = new User();
             user.FirstName = userInsertVM.FirstName;
